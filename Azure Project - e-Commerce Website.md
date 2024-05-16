@@ -43,39 +43,39 @@ Total Monthly Cost: ~$50-100
 **Azure CLI Steps**
 
 **Important: Ensure you have the appropriate Azure CLI installed and authenticated before running these commands. In the steps provided, 
-angle brackets (e.g., <ResourceGroupName>, <AppServiceName>, <SQLServerName>) are used to indicate placeholders where you should replace 
-the text inside the brackets with your specific names and details.**
+asterisks (e.g., *ResourceGroupName*, *AppServiceName*, *SQLServerName*) are used to indicate placeholders where if you choose to, you can 
+replace the text inside the asterisks with your specific names and details. Then, remove the asterisks before execution.**
 
 1. **Login to Azure**
    - az login
 
 2. **Create a Resource Group**
-   - az group create --name EcommerceResourceGroup --location eastus
+   - az group create --name *EcommerceResourceGroup* --location *eastus*
    
 3. **Create an Azure App Service Plan**
-   - az appservice plan create --name <EcommerceAppServicePlan> --resource-group <EcommerceResourceGroup> --sku <S1>
+   - az appservice plan create --name *EcommerceAppServicePlan* --resource-group *EcommerceResourceGroup* --sku *S1*
 
 4. **Create a Web App**
-   - az webapp create --name <EcommerceWebApp> --resource-group <EcommerceResourceGroup> --plan <EcommerceAppServicePlan>
+   - az webapp create --name *EcommerceWebApp* --resource-group *EcommerceResourceGroup* --plan *EcommerceAppServicePlan*
   
 5. **Deploy the E-Commerce Application (e.g., from GitHub)**
-   - az webapp deployment source config --name <EcommerceWebApp> --resource-group <EcommerceResourceGroup> --repo-url https://github.com/Azure-Samples/aspnet-core-app --branch master --manual-integration
+   - az webapp deployment source config --name *EcommerceWebApp* --resource-group *EcommerceResourceGroup* --repo-url https://github.com/Azure-Samples/aspnet-core-app --branch master --manual-integration
 
 6. **Create an Azure SQL Database**
-   - az sql server create --name <EcommerceSqlServer> --resource-group <EcommerceResourceGroup> --location <eastus> --admin-user <myadmin> --admin-password <MyP@ssword123>
-   - az sql db create --resource-group <EcommerceResourceGroup> --server <EcommerceSqlServer> --name <EcommerceDatabase> --service-objective S0
+   - az sql server create --name *EcommerceSqlServer* --resource-group *EcommerceResourceGroup* --location *eastus* --admin-user *myadmin* --admin-password *YourP@ssword123*
+   - az sql db create --resource-group *EcommerceResourceGroup* --server *EcommerceSqlServer* --name *EcommerceDatabase* --service-objective S0
 
 7. **Create an Azure Blob Storage Account**
-   - az storage account create --name <ecommercestorageaccount> --resource-group <EcommerceResourceGroup> --location <eastus> --sku <Standard_LRS>
+   - az storage account create --name *ecommercestorageaccount* --resource-group *EcommerceResourceGroup* --location *eastus* --sku *Standard_LRS*
   
 8. **Create a Blob Container**
-   - az storage container create --account-name <ecommercestorageaccount> --name <product-images>
+   - az storage container create --account-name *ecommercestorageaccount* --name *product-images*
 
 9. **Configure the Web App to Use the SQL Database and Blob Storage**
-    - SQL_CONNECTION_STRING=$(az sql db show-connection-string --server <EcommerceSqlServer> --name <EcommerceDatabase> --client ado.net)
-    - STORAGE_CONNECTION_STRING=$(az storage account show-connection-string --name <ecommercestorageaccount> --resource-group <EcommerceResourceGroup>)
-    - az webapp config connection-string set --name <EcommerceWebApp> --resource-group <EcommerceResourceGroup> --settings DefaultConnection=$SQL_CONNECTION_STRING --connection-string-type SQLAzure
-    - az webapp config appsettings set --name <EcommerceWebApp> --resource-group <EcommerceResourceGroup> --settings AZURE_STORAGE_CONNECTION_STRING=$STORAGE_CONNECTION_STRING
+    - SQL_CONNECTION_STRING=$(az sql db show-connection-string --server *EcommerceSqlServer* --name *EcommerceDatabase* --client ado.net)
+    - STORAGE_CONNECTION_STRING=$(az storage account show-connection-string --name *ecommercestorageaccount* --resource-group *EcommerceResourceGroup*)
+    - az webapp config connection-string set --name *EcommerceWebApp* --resource-group *EcommerceResourceGroup* --settings DefaultConnection=$SQL_CONNECTION_STRING --connection-string-type SQLAzure
+    - az webapp config appsettings set --name *EcommerceWebApp* --resource-group *EcommerceResourceGroup* --settings AZURE_STORAGE_CONNECTION_STRING=$STORAGE_CONNECTION_STRING
 
 10. **Test and Scale the Application**
     - Access the web application via the App Service URL.
