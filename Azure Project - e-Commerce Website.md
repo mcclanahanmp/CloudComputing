@@ -50,7 +50,7 @@ the text inside the brackets with your specific names and details.**
    - az login
 
 2. **Create a Resource Group**
-   - az group create --name <EcommerceResourceGroup> --location <eastus>
+   - az group create --name EcommerceResourceGroup --location eastus
    
 3. **Create an Azure App Service Plan**
    - az appservice plan create --name <EcommerceAppServicePlan> --resource-group <EcommerceResourceGroup> --sku <S1>
