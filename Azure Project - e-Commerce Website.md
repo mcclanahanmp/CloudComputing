@@ -3,10 +3,10 @@
 **Objective:** Deploy a scalable e-commerce website with image storage and database integration.
 
 **Estimated Budget**
-Azure App Service: Standard Tier
-Azure SQL Database: Standard Tier
-Azure Blob Storage: Hot Access Tier
-Total Monthly Cost: ~$50-100
+- Azure App Service: Standard Tier
+- Azure SQL Database: Standard Tier
+- Azure Blob Storage: Hot Access Tier
+- Total Monthly Cost: ~$50-100
 
 **Azure GUI Steps**
 
