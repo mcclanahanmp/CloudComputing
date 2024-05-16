@@ -2,13 +2,13 @@
 
 **Objective:** Deploy a scalable e-commerce website with image storage and database integration.
 
-**Estimated Budget**
+**Estimated Budget:**
 - Azure App Service: Standard Tier
 - Azure SQL Database: Standard Tier
 - Azure Blob Storage: Hot Access Tier
 - Total Monthly Cost: ~$50-100
 
-**Azure GUI Steps**
+**Azure GUI Steps:**
 
 1. **Create an Azure App Service**
    - Navigate to the Azure Portal.
@@ -40,7 +40,7 @@
    - Ensure all features (e.g., product listings, image uploads) work correctly.
    - Configure autoscaling settings for the App Service to handle varying loads.
 
-**Azure CLI Steps**
+**Azure CLI Steps:**
 
 **Important: Ensure you have the appropriate Azure CLI installed and authenticated before running these commands. In the steps provided, 
 asterisks (e.g., *ResourceGroupName*, *AppServiceName*, *SQLServerName*) are used to indicate placeholders where if you choose to, you can 
